@@ -7,7 +7,7 @@ class Graph {
             method: "get",
             headers:{
                 "Accept": "application/json",
-                "apiKey": "your APIkey"
+                "apiKey": process.env.API_KEY
             }
         };
         const response = await fetch(url, options);
