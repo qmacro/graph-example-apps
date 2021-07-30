@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+curl \
+  --header "Content-Type: application/x-www-form-urlencoded" \
+  --header "Accept: application/json" \
+  --data "client_id=$(skvu uaa.clientid)" \
+  --data "client_secret=$(skvu uaa.clientsecret)" \
+  --data "refresh_token=$(urlencode "$(skv token refresh_token)")" \
+  --data "grant_type=refresh_token" \
+  "$(skv uaa.url)/oauth/token" > refreshed.json
