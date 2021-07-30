@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+curl \
+  --header "Content-Type: application/x-www-form-urlencoded" \
+  --header "Accept: application/json" \
+  --data "redirect_uri=$(urlencode "http://localhost")" \
+  --data "client_id=$(skvu uaa.clientid)" \
+  --data "client_secret=$(skvu uaa.clientsecret)" \
+  --data "code=${1:-$CODE}" \
+  --data "grant_type=authorization_code" \
+  "$(skv uaa.url)/oauth/token" > token.json

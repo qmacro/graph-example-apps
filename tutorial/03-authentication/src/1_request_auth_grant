@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+url="\
+$(skv uaa.url)/oauth/authorize\
+?client_id=$(skvu uaa.clientid)\
+&redirect_uri=$(urlencode "http://localhost")\
+&response_type=code"
+
+echo "$url"
